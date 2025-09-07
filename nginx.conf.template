@@ -1,0 +1,14 @@
+server {
+  listen ${PORT};
+  server_name _;
+
+  root /usr/share/nginx/html;
+  index index.html;
+
+  location / {
+    # escapen der nginx-Variablen damit envsubst sie nicht verändert
+    try_files \$uri \$uri/ /index.html;
+  }
+
+  # optional: cache headers, gzip etc.
+}
