@@ -2,6 +2,8 @@ version: '3'
 services:
   einmaleins:
     build: .
-    ports:
-      - "8080:80"
     restart: unless-stopped
+    ports:
+      - "8080:8080"        # host:container
+    environment:
+      - PORT=8080          # overrides Dockerfile ENV (optional, keeps it explicit)
